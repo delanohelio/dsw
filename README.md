@@ -7,4 +7,4 @@ Em construção
 
 1 - Introdução
 
-[2 - Programação Funcional](js/2-pf.md)
+[2 - Programação Funcional](js/pf.md)
