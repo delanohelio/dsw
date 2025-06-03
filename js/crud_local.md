@@ -1,139 +1,214 @@
-# CRUD Local com DOM
+# **CRUD com DOM e localStorage**
 
-Nesta aula, você vai aprender a criar um sistema básico de CRUD (Create, Read, Update, Delete) utilizando apenas JavaScript puro e manipulação do DOM, armazenando os dados em memória (durante a sessão da página).
+Nesta aula, você vai aprender a criar um sistema **CRUD (Create, Read, Update, Delete)** usando **JavaScript puro**, manipulação do **DOM** e **localStorage** para persistir os dados mesmo após recarregar a página.
 
----
-
-## Objetivos
-
-- Entender os conceitos de CRUD aplicados a uma lista de tarefas (TODOs)
-- Aprender a manipular dados locais em arrays no JavaScript
-- Praticar criação, listagem, edição e exclusão de itens na interface
-- Controlar o estado da aplicação sem backend, usando somente o navegador
+Vamos implementar uma **lista de tarefas (TODO List)** onde os dados são armazenados no navegador do usuário.
 
 ---
 
-## Conceitos Principais
+## **📌 Objetivos**
+✅ Criar, ler, atualizar e deletar tarefas localmente  
+✅ Manipular o DOM para exibir os dados dinamicamente  
+✅ Armazenar e recuperar dados do **localStorage**  
+✅ Controlar o estado da aplicação sem backend
 
-### 1. Estrutura de dados local
+---
 
-Usaremos um array para armazenar as tarefas:
+## **🔍 Conceitos Principais**
 
-```js
+### **1. Estrutura de Dados**
+Usaremos um **array de objetos** para armazenar as tarefas:
+
+```javascript
 let tarefas = [
-  { id: 1, texto: 'Estudar JavaScript', concluida: false },
-  { id: 2, texto: 'Praticar DOM', concluida: true },
+  { id: 1, texto: "Estudar JavaScript", concluida: false },
+  { id: 2, texto: "Praticar DOM", concluida: true },
 ];
-````
-
-* `id`: identificador único da tarefa
-* `texto`: descrição da tarefa
-* `concluida`: status booleano da tarefa
-
-### 2. Operações CRUD
-
-* **Create (Criar):** Adicionar uma nova tarefa ao array
-* **Read (Ler):** Exibir todas as tarefas atuais no HTML
-* **Update (Atualizar):** Marcar tarefa como concluída ou editar texto
-* **Delete (Deletar):** Remover tarefa da lista
+```
+- **`id`**: Identificador único (gerado automaticamente)
+- **`texto`**: Descrição da tarefa
+- **`concluida`**: Status (`true` ou `false`)
 
 ---
 
-## Passo a passo para o CRUD local
+### **2. localStorage**
+O **localStorage** permite armazenar dados no navegador de forma persistente (mesmo após fechar a página).
 
-### Criar uma tarefa
+#### **Métodos principais:**
+| Método | Descrição | Exemplo |
+|--------|-----------|---------|
+| `setItem()` | Salva dados no localStorage | `localStorage.setItem("chave", JSON.stringify(dados))` |
+| `getItem()` | Recupera dados | `JSON.parse(localStorage.getItem("chave"))` |
+| `removeItem()` | Remove um item | `localStorage.removeItem("chave")` |
+| `clear()` | Limpa todo o localStorage | `localStorage.clear()` |
 
-1. Obtenha o texto do campo de entrada (`input`)
-2. Crie um objeto com as propriedades necessárias
-3. Adicione o objeto ao array `tarefas`
-4. Atualize a lista exibida na tela
-
-### Ler / Listar as tarefas
-
-1. Percorra o array `tarefas`
-2. Para cada tarefa, crie elementos HTML dinamicamente (`li`, `button`, etc)
-3. Insira esses elementos dentro de um container (`ul` ou `div`)
-
-### Atualizar tarefa
-
-* Marcar como concluída: altere a propriedade `concluida` para `true` ou `false`
-* Editar texto: permita alterar o campo texto da tarefa (opcional para essa aula)
-
-### Deletar tarefa
-
-* Remova a tarefa do array pelo `id`
-* Atualize a lista na interface
+⚠️ **Importante:**
+- O localStorage só armazena **strings** (por isso usamos `JSON.stringify` e `JSON.parse`).
+- Os dados ficam disponíveis **apenas no mesmo domínio**.
 
 ---
 
-## Exemplo básico de implementação
+## **🚀 Passo a Passo do CRUD com localStorage**
 
-```js
-const tarefas = [];
-let ultimoId = 0;
+### **1. Inicializar e Carregar Dados**
+Antes de manipular o array `tarefas`, devemos **verificar se já existem dados salvos**:
 
-// Referências aos elementos HTML
-const listaEl = document.getElementById('lista-tarefas');
-const inputEl = document.getElementById('nova-tarefa');
-const btnAdd = document.getElementById('btn-adicionar');
+```javascript
+let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+let ultimoId = tarefas.length > 0 ? Math.max(...tarefas.map(t => t.id)) : 0;
+```
 
+### **2. Salvar Dados no localStorage**
+Sempre que o array for modificado, **atualizamos o localStorage**:
+
+```javascript
+function salvarNoLocalStorage() {
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+```
+
+### **3. Operações CRUD**
+
+#### **🔹 Create (Adicionar Tarefa)**
+```javascript
 function adicionarTarefa(texto) {
-  if (!texto.trim()) return alert('Digite uma tarefa válida.');
+  if (!texto.trim()) return alert("Digite uma tarefa válida.");
+  
   ultimoId++;
   tarefas.push({ id: ultimoId, texto, concluida: false });
+  salvarNoLocalStorage(); // Atualiza localStorage
   renderizarLista();
 }
+```
 
-function deletarTarefa(id) {
-  const index = tarefas.findIndex(t => t.id === id);
-  if (index > -1) {
-    tarefas.splice(index, 1);
+#### **🔹 Read (Listar Tarefas)**
+```javascript
+function renderizarLista() {
+  const listaEl = document.getElementById("lista-tarefas");
+  listaEl.innerHTML = "";
+
+  tarefas.forEach(tarefa => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span style="text-decoration: ${tarefa.concluida ? "line-through" : "none"}">
+        ${tarefa.texto}
+      </span>
+      <button onclick="alternarConcluida(${tarefa.id})">
+        ${tarefa.concluida ? "Desfazer" : "Concluir"}
+      </button>
+      <button onclick="deletarTarefa(${tarefa.id})">Excluir</button>
+    `;
+    listaEl.appendChild(li);
+  });
+}
+```
+
+#### **🔹 Update (Alternar Conclusão)**
+```javascript
+function alternarConcluida(id) {
+  const tarefa = tarefas.find(t => t.id === id);
+  if (tarefa) {
+    tarefa.concluida = !tarefa.concluida;
+    salvarNoLocalStorage(); // Atualiza localStorage
     renderizarLista();
   }
+}
+```
+
+#### **🔹 Delete (Remover Tarefa)**
+```javascript
+function deletarTarefa(id) {
+  if (!confirm("Tem certeza que deseja excluir?")) return;
+  
+  tarefas = tarefas.filter(t => t.id !== id);
+  salvarNoLocalStorage(); // Atualiza localStorage
+  renderizarLista();
+}
+```
+
+---
+
+## **📂 Exemplo Completo**
+
+### **HTML**
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Tarefas com localStorage</title>
+</head>
+<body>
+  <h1>Minha Lista de Tarefas</h1>
+  <input type="text" id="nova-tarefa" placeholder="Digite uma tarefa...">
+  <button id="btn-adicionar">Adicionar</button>
+  <ul id="lista-tarefas"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+### **JavaScript (script.js)**
+```javascript
+let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+let ultimoId = tarefas.length > 0 ? Math.max(...tarefas.map(t => t.id)) : 0;
+
+function salvarNoLocalStorage() {
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+
+function adicionarTarefa(texto) {
+  if (!texto.trim()) return alert("Digite uma tarefa válida.");
+  
+  ultimoId++;
+  tarefas.push({ id: ultimoId, texto, concluida: false });
+  salvarNoLocalStorage();
+  renderizarLista();
 }
 
 function alternarConcluida(id) {
   const tarefa = tarefas.find(t => t.id === id);
   if (tarefa) {
     tarefa.concluida = !tarefa.concluida;
+    salvarNoLocalStorage();
     renderizarLista();
   }
 }
 
+function deletarTarefa(id) {
+  if (!confirm("Tem certeza que deseja excluir?")) return;
+  
+  tarefas = tarefas.filter(t => t.id !== id);
+  salvarNoLocalStorage();
+  renderizarLista();
+}
+
 function renderizarLista() {
-  listaEl.innerHTML = '';
+  const listaEl = document.getElementById("lista-tarefas");
+  listaEl.innerHTML = "";
+
   tarefas.forEach(tarefa => {
-    const li = document.createElement('li');
-    li.textContent = tarefa.texto;
-    li.style.textDecoration = tarefa.concluida ? 'line-through' : 'none';
-
-    // Botão de concluir
-    const btnConcluir = document.createElement('button');
-    btnConcluir.textContent = tarefa.concluida ? 'Desfazer' : 'Concluir';
-    btnConcluir.onclick = () => alternarConcluida(tarefa.id);
-
-    // Botão de deletar
-    const btnDeletar = document.createElement('button');
-    btnDeletar.textContent = 'Excluir';
-    btnDeletar.onclick = () => deletarTarefa(tarefa.id);
-
-    li.appendChild(btnConcluir);
-    li.appendChild(btnDeletar);
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span style="text-decoration: ${tarefa.concluida ? "line-through" : "none"}">
+        ${tarefa.texto}
+      </span>
+      <button onclick="alternarConcluida(${tarefa.id})">
+        ${tarefa.concluida ? "Desfazer" : "Concluir"}
+      </button>
+      <button onclick="deletarTarefa(${tarefa.id})">Excluir</button>
+    `;
     listaEl.appendChild(li);
   });
 }
 
-btnAdd.addEventListener('click', () => {
+// Event Listeners
+document.getElementById("btn-adicionar").addEventListener("click", () => {
+  const inputEl = document.getElementById("nova-tarefa");
   adicionarTarefa(inputEl.value);
-  inputEl.value = '';
+  inputEl.value = "";
   inputEl.focus();
-});
-
-// Opcional: adicionar tecla Enter para adicionar tarefa
-inputEl.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    btnAdd.click();
-  }
 });
 
 // Inicialização
@@ -142,29 +217,18 @@ renderizarLista();
 
 ---
 
-## Validações básicas
-
-* Verifique se o texto da tarefa não está vazio
-* Evite adicionar tarefas duplicadas (opcional)
-* Confirme ações de exclusão (opcional)
-
----
-
-## Próximos passos
-
-* Persistir dados no `localStorage` para manter as tarefas após recarregar a página
-* Implementar edição de texto das tarefas
-* Melhorar a interface com CSS para um visual mais agradável
-* Adicionar filtros para mostrar somente tarefas concluídas ou pendentes
+## **🔧 Melhorias Possíveis**
+- **Editar tarefas** (alterar texto)
+- **Filtrar tarefas** (concluídas/pendentes)
+- **Melhorar UI com CSS**
+- **Adicionar data de criação**
+- **Sincronizar com um backend futuro**
 
 ---
 
-## Exercício prático
+## **📚 Conclusão**
+Agora você tem um **CRUD funcional** com **persistência em localStorage**!
 
-* Desenvolva seu próprio miniapp de lista de tarefas com as funções de criar, listar, concluir e deletar.
-* Experimente adicionar um filtro para mostrar apenas tarefas pendentes.
-* Brinque com o estilo CSS para melhorar a usabilidade.
+👉 **Desafio:** Tente implementar a **edição de tarefas** ou um **sistema de filtros**.
 
----
-
-**Boa prática!** Manipular dados localmente e atualizar a interface dinamicamente é um passo fundamental para o desenvolvimento frontend moderno.
+**Bons estudos!** 🚀💻
