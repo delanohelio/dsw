@@ -85,24 +85,24 @@ Esses miniapps servem como base prática e incremental para o aprendizado dos fr
 
 ## 🗓️ Planejamento das Aulas
 
-| 📅 Data     | 📘 Conteúdo                                                                 |
-|------------|------------------------------------------------------------------------------|
-| **27/05**  | JS: Manipulação do DOM – miniapp Lista de Tarefas (TODOs)                   |
-| **02/06**  | JS: Filtros, exclusão e refatoração de TODOs com funções                     |
-| **03/06**  | JS: CRUD local com lista de tarefas                                          |
-| **09/06**  | JS: Introdução ao consumo de API REST (GET) com `fetch()`                   |
-| **10/06**  | JS: Miniapp catálogo de livros consumindo dados com filtro                   |
-| **16/06**  | JS: POST e DELETE com `fetch()` + feedback na interface                      |
-| **17/06**  | JS: Finalização do miniapp Catálogo de Livros (JS puro)                      |
-| **23/06**  | VueJS: Introdução – diretivas, eventos, reatividade                          |
-| **24/06**  | VueJS: Catálogo de Livros com Favoritos – estrutura base e `v-for`           |
-| **30/06**  | VueJS: Favoritar livros + contador de favoritos                              |
-| **01/07**  | VueJS: Formulários e validações – adição de novos livros                    |
-| **07/07**  | VueJS: Consumo de API REST com Vue                                           |
-| **08/07**  | VueJS: Organização e boas práticas                                           |
-| **09/07**  | VueJS: Revisão geral e preparação para projeto final                         |
-| **❌ 14/07 a 20/07** | ❌ *Sem aula (recesso)*                                                |
-| **21/07**  | Projeto: Finalização, testes e ajustes                                       |
+| 📅 Data     | 📘 Conteúdo                                                        |
+|------------|--------------------------------------------------------------------|
+| **27/05**  | JS: Manipulação do DOM – miniapp Lista de Tarefas (TODOs)          |
+| **02/06**  | JS: CRUD local com lista de tarefas                                |
+| **03/06**  | JS: Introdução ao consumo de API REST (GET) com `fetch()`          |
+| **09/06**  | Feriado municipal                                                  |
+| **10/06**  | JS: Miniapp catálogo de livros consumindo dados com filtro         |
+| **16/06**  | JS: POST e DELETE com `fetch()` + feedback na interface            |
+| **17/06**  | JS: Finalização do miniapp Catálogo de Livros (JS puro)            |
+| **23/06**  | VueJS: Introdução – diretivas, eventos, reatividade                |
+| **24/06**  | VueJS: Catálogo de Livros com Favoritos – estrutura base e `v-for` |
+| **30/06**  | VueJS: Favoritar livros + contador de favoritos                    |
+| **01/07**  | VueJS: Formulários e validações – adição de novos livros           |
+| **07/07**  | VueJS: Consumo de API REST com Vue                                 |
+| **08/07**  | VueJS: Organização e boas práticas                                 |
+| **09/07**  | VueJS: Revisão geral e preparação para projeto final               |
+| **❌ 14/07 a 20/07** | ❌ *Sem aula (recesso)*                                             |
+| **21/07**  | Projeto: Finalização, testes e ajustes                             |
 
 ---
 
