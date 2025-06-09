@@ -48,41 +48,41 @@ Esses miniapps servem como base prática e incremental para o aprendizado dos fr
 
 ### 🧱 Fundamentos com JavaScript
 
-- [1️⃣ Introdução ao JavaScript](https://www.google.com/search?q=conteudo/introducao.md)
+- [1️⃣ Introdução ao JavaScript](conteudo/introducao.md)
   Tipos de variáveis, operadores, estruturas de repetição e decisão, funções.
 
-- [2️⃣ Programação Funcional em JS](https://www.google.com/search?q=conteudo/pf.md)
+- [2️⃣ Programação Funcional em JS](conteudo/pf.md)
   Funções puras, `map`, `filter`, `reduce`, callbacks.
 
-- [3️⃣ Manipulação do DOM](https://www.google.com/search?q=conteudo/dom.md)
+- [3️⃣ Manipulação do DOM](conteudo/dom.md)
   Seleção de elementos, eventos, criação dinâmica de listas e formulários.
 
   > Miniapp: Lista de Tarefas (TODOs)
 
-- [4️⃣ CRUD Local com DOM](https://www.google.com/search?q=conteudo/crud_local.md)
+- [4️⃣ CRUD Local com DOM](conteudo/crud_local.md)
   Armazenamento e manipulação de dados em memória com feedback visual.
 
   > Miniapp: Lista de Tarefas com persistência simples
 
-- [5️⃣ Consumo de API com Fetch](https://www.google.com/search?q=conteudo/api_fetch.md)
+- [5️⃣ Consumo de API com Fetch](conteudo/api_fetch.md)
   Métodos HTTP (GET, POST, DELETE), renderização de dados dinâmicos.
 
   > Miniapp: Catálogo de livros com API simulada
 
 ### ⚙️ Vue.js (sem componentes)
 
-- [6️⃣ Introdução ao VueJS](https://www.google.com/search?q=conteudo/vue_intro.md)
+- [6️⃣ Introdução ao VueJS](conteudo/vue_intro.md)
   CDN, `data`, diretivas (`v-model`, `v-for`, `v-if`), eventos.
 
   > Miniapp: Catálogo de Livros com Favoritos
 
-- [7️⃣ Formulários e Validações com VueJS](https://www.google.com/search?q=conteuto/vue_forms.md)
+- [7️⃣ Formulários e Validações com VueJS](conteudo/vue_forms.md)
   Formulários reativos, mensagens de erro, validação de campos.
 
-- [8️⃣ VueJS com API REST](https://www.google.com/search?q=conteudo/vue_api.md)
+- [8️⃣ VueJS com API REST](conteudo/vue_api.md)
   Integração de Vue com API (GET/POST), estado de carregamento, tratamento de erros.
 
-- [9️⃣ Organização e Boas Práticas com VueJS](https://www.google.com/search?q=conteudo/vue_estrutura.md)
+- [9️⃣ Organização e Boas Práticas com VueJS](conteudo/vue_estrutura.md)
   Separação de lógica, arquivos e estrutura base para projetos frontend.
 
 -----
