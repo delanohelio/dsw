@@ -15,7 +15,7 @@ Aqui você aprenderá a construir aplicações web modernas com **HTML5**, **CSS
 - Conectar-se a uma **API REST externa (já fornecida)**
 
 👉 Veja os detalhes completos aqui:
-[📋 Requisitos do Projeto](https://www.google.com/search?q=projeto/requisitos.md)
+[📋 Requisitos do Projeto](projeto/requisitos.md)
 
 -----
 
