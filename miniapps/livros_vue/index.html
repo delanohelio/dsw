@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha primeira App com Vue</title>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="livro in livros" :key="livro.id">
+            {{ livro.titulo }} - {{ livro.autor }}
+        </li>
+    </ul>
+</div>
+
+<script src="vue.js"></script>
+
+</body>
+</html>
