@@ -73,7 +73,7 @@ createApp({
 
 ## ✨ Diretivas: Instruções Especiais no HTML
 
-Diretivas são atributos especiais com o prefixo `v-`. Elas dizem ao Vue para fazer algo especial com um elemento do DOM. Vamos ver as principais:
+Diretivas são atributos especiais geralmente com o prefixo `v-`. Elas dizem ao Vue para fazer algo especial com um elemento do DOM. Vamos ver as principais:
 
 ### **1. `{{ }}` (Interpolação de Texto)**
 Para exibir dados no HTML, usamos a sintaxe de chaves duplas (Mustache).
@@ -125,7 +125,7 @@ data() {
 ```
 
 ### **4. `v-on` (ou `@`) (Manipulação de Eventos)**
-Usada para ouvir eventos do DOM (como cliques) e executar um código quando eles ocorrem.
+Usada para ouvir eventos do DOM (como cliques) e executar um código quando eles ocorrem. Podemos substituir o `v-on:` por `@`. Por exemplo, para executar um código quando um elemento é clicado, podemos adicionar a propriedade `v-on:click` ou apenas `@click`. 
 
 **HTML:**
 ```html
