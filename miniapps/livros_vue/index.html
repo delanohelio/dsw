@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Minha primeira App com Vue</title>
     <meta charset="UTF-8">
+    <title>Catálogo de Livros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div id="app" class="container">
+    <h1>📚 Catálogo de Livros</h1>
 
-<div id="app">
-    <ul>
+    <form id="form-livro" @submit="adicionarLivro">
+        <input type="text" v-model="novoTitulo" placeholder="Título do livro" required>
+        <input type="text" v-model="novoAutor" placeholder="Autor do livro" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <ul id="lista-livros">
+        <p v-if="livros.length > 0">
+            Temos {{ livros.length }} livros cadastrados.
+        </p>
+        <p v-else>
+            Nenhum livro cadastrado ainda.
+        </p>
         <li v-for="livro in livros" :key="livro.id">
-            {{ livro.titulo }} - {{ livro.autor }}
+            <span>
+                {{ livro.titulo }} - {{ livro.autor }}
+                <button @click="excluirLivro(livro)">Excluir</button>
+            </span>
         </li>
     </ul>
 </div>
 
 <script src="vue.js"></script>
-
 </body>
 </html>
