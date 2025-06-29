@@ -76,8 +76,10 @@ Esses miniapps servem como base prática e incremental para o aprendizado dos fr
 
   > Miniapp: Catálogo de Livros com Favoritos
 
-- [7️⃣ Formulários e Validações com VueJS](conteudo/vue_forms.md)
-  Formulários reativos, mensagens de erro, validação de campos.
+- [7️⃣ VueJS: Reatividade e Propriedades Computadas no Vue](conteudo/vue_reatividade.md)
+  Funções vs Propriedades computadas.
+  
+  > Miniapp: Calculadora de IMC
 
 - [8️⃣ VueJS com API REST](conteudo/vue_api.md)
   Integração de Vue com API (GET/POST), estado de carregamento, tratamento de erros.
@@ -89,24 +91,24 @@ Esses miniapps servem como base prática e incremental para o aprendizado dos fr
 
 ## 🗓️ Planejamento das Aulas
 
-| 📅 Data | 📘 Conteúdo                                                        |
-| :--- |:-------------------------------------------------------------------|
-| **27/05** | JS: Manipulação do DOM – miniapp Lista de Tarefas (TODOs)          |
-| **02/06** | JS: CRUD local com lista de tarefas                                |
-| **03/06** | JS: Introdução ao consumo de API REST (GET) com `fetch()`          |
-| **09/06** | Feriado municipal                                                  |
-| **10/06** | Acompanhamento de Projetos (Sprint 1) e Tira-dúvidas               |
-| **16/06** | VueJS: Introdução – diretivas, eventos, reatividade                |
-| **17/06** | VueJS: Catálogo de Livros com Favoritos – estrutura base e `v-for` |
-| **23/06** | VueJS: Favoritar livros + contador de favoritos                    |
-| **24/06** | VueJS: Formulários e validações – adição de novos livros           |
-| **30/06** | VueJS: Consumo de API REST com Vue                                 |
-| **01/07** | VueJS: Organização e boas práticas                                 |
-| **07/07** | VueJS: Revisão geral e preparação para projeto final               |
-| **08/07** | Projeto: Tira-dúvidas e desenvolvimento (Sprint 2)                 |
-| **09/07** | Projeto: Tira-dúvidas e desenvolvimento (Sprint 2)                 |
-| **❌ 14/07 a 20/07** | ❌ *Sem aula (recesso)*                                             |
-| **21/07** | Projeto: Finalização, testes e ajustes                             |
+| 📅 Data | 📘 Conteúdo                                                                                                  |
+| :--- |:-------------------------------------------------------------------------------------------------------------|
+| **27/05** | JS: Manipulação do DOM – miniapp Lista de Tarefas (TODOs)                                                    |
+| **02/06** | JS: CRUD local com lista de tarefas                                                                          |
+| **03/06** | JS: Introdução ao consumo de API REST (GET) com `fetch()`                                                    |
+| **09/06** | Feriado municipal                                                                                            |
+| **10/06** | Acompanhamento de Projetos (Sprint 1) e Tira-dúvidas                                                         |
+| **16/06** | VueJS: Introdução – diretivas, eventos, reatividade                                                          |
+| **17/06** | VueJS: Catálogo de Livros com Favoritos – estrutura base e `v-for`                                           |
+| **23/06** | **Não Haverá Aula**                                                                                          |
+| **24/06** | **Não Haverá Aula**                                                                                          |
+| **30/06** | VueJS: Reatividade e Propriedades Computadas no Vue                                                          |
+| **01/07** | VueJS: Consumo de API REST com Vue                                                                           |
+| **07/07** | VueJS: Revisão geral e preparação para projeto final                                                         |
+| **08/07** | Projeto: Tira-dúvidas e desenvolvimento (Sprint 2)                                                           |
+| **09/07** | Projeto: Tira-dúvidas e desenvolvimento (Sprint 2)                                                           |
+| **❌ 14/07 a 20/07** | ❌ *Sem aula (recesso)*                                                                                       |
+| **21/07** | Projeto: Finalização, testes e ajustes                                                                       |
 
 -----
 

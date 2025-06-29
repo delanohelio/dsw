@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de IMC com Vue.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app">
+    <div class="container">
+        <h1>Calculadora de IMC</h1>
+
+        <div class="form-group">
+            <label for="peso">Peso (kg)</label>
+            <input type="number" id="peso" v-model.number="peso" placeholder="Ex: 70">
+        </div>
+
+        <div class="form-group">
+            <label for="altura">Altura (m)</label>
+            <input type="number" id="altura" v-model.number="altura" placeholder="Ex: 1.75">
+        </div>
+
+        <div v-if="imc > 0" class="resultado" :class="classificacao.classe">
+            <h2>Seu IMC: {{ imc }}</h2>
+            <p>Classificação: <strong>{{ classificacao.texto }}</strong></p>
+        </div>
+        <div v-else class="resultado">
+            <p>Por favor, preencha seu peso e altura.</p>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
