@@ -84,10 +84,12 @@ Esses miniapps servem como base prática e incremental para o aprendizado dos fr
 - [8️⃣ VueJS com API REST](conteudo/vue_api.md)
   Integração de Vue com API (GET/POST), estado de carregamento, tratamento de erros.
 
-> [Exercicio em Sala - App Contatos](exercicio/exercicio_vue.md)
+  > [Exercicio em Sala - App Contatos](exercicio/exercicio_vue.md)
 
-- [9️⃣ Organização e Boas Práticas com VueJS](conteudo/vue_estrutura.md)
-  Separação de lógica, arquivos e estrutura base para projetos frontend.
+- [9️⃣ Criando uma Aplicação com Múltiplas Páginas e Compartilhando Dados](conteudo/vue_multi_paginas.md)
+  Construção de apps com multi páginas.
+
+  > [Miniapp: Mini E-commerce](conteudo/mini_ecommerce.md)
 
 -----
 
