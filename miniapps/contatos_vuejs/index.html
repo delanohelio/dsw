@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Contatos com Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="container">
+        <h1>📞 Lista de Contatos</h1>
+
+        <form class="form-group" @submit.prevent="adicionarContato">
+            <input type="text" v-model="form.nome" placeholder="Nome" required>
+            <input type="email" v-model="form.email" placeholder="E-mail" required>
+            <input type="text" v-model="form.telefone" placeholder="Telefone" required>
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <div class="feedback-area">
+            <p v-if="isLoading">Carregando contatos...</p>
+            <p v-if="erro" class="erro">{{ erro }}</p>
+        </div>
+
+        <ul class="contact-list" v-if="!isLoading && !erro">
+            <li v-for="contato in contatos" :key="contato.id">
+                <div class="contact-info">
+                    <strong>{{ contato.nome }}</strong>
+                    <span>{{ contato.email }} | {{ contato.telefone }}</span>
+                    <button @click="removeContato(contato.id)">Remover</button>
+                </div>
+            </li>
+        </ul>
+        <p v-if="!isLoading && !erro && contatos.length === 0">Nenhum contato cadastrado.</p>
+
+    </div>
+</div>
+
+</body>
+</html>

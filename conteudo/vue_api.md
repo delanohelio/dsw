@@ -11,13 +11,6 @@ Até agora, trabalhamos com dados "mockados" (fixos no código) dentro do nosso 
 
 -----
 
-
-Claro\! Ótima ideia. Aprofundar no ciclo de vida é fundamental para entender *quando* e *onde* executar ações importantes, como as chamadas de API.
-
-Aqui está a aula sobre "VueJS com API REST" reestruturada para incluir uma explicação mais detalhada sobre o ciclo de vida do Vue, junto com um diagrama Mermaid para ilustrar o processo.
-
------
-
 # 🛰️ VueJS com API REST
 
 Até agora, trabalhamos com dados "mockados" (fixos no código). Chegou a hora de conectar nossa aplicação Vue a um backend real, usando a `fetch` API. Para fazer isso da forma correta, primeiro precisamos entender como uma aplicação Vue "nasce, vive e morre". Esse processo é chamado de **Ciclo de Vida do Componente**.

@@ -15,6 +15,18 @@ createApp({
         }
     },
 
+    computed: {
+        nomeAutor() {
+            // return this.novoAutor.toUpperCase()
+            console.log("Chamou a propriedade computada");
+            if (this.novoAutor.trim() === '') return "";
+            const nomeArray = this.novoAutor.split(' ');
+            const nome = nomeArray[0];
+            const sobrenome = nomeArray[nomeArray.length - 1];
+            return `${sobrenome.toUpperCase()},  ${nome}`;
+        }
+    },
+
     methods: {
         adicionarLivro(e) {
             e.preventDefault()

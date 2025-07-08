@@ -17,6 +17,10 @@
         <button type="submit">Adicionar</button>
     </form>
 
+    <p>Novo Livro: {{novoTitulo}} - {{nomeAutor}}</p>
+
+    <h3>{{nomeAutor}}</h3>
+
     <ul id="lista-livros">
         <p v-if="livros.length > 0">
             Temos {{ livros.length }} livros cadastrados.
