@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Produto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="container">
+    <header>
+        <a href="index.html">← Voltar para a lista</a>
+    </header>
+
+    <div v-if="isLoading">Carregando detalhes...</div>
+    <div v-if="erro" class="erro">{{ erro }}</div>
+
+    <div class="product-details" v-if="produto && !isLoading">
+        <h1>{{ produto.nome }}</h1>
+        <p class="price">R$ {{ produto.preco.toFixed(2) }}</p>
+        <p>{{ produto.descricao }}</p>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue@3"></script>
+<script src="js/detalhes.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nossa Lojinha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="container">
+    <header>
+        <h1>Nossos Produtos</h1>
+        <a href="carrinho.html">Ver Carrinho ({{ carrinho.length }})</a>
+    </header>
+
+    <div v-if="isLoading">Carregando produtos...</div>
+    <div v-if="erro" class="erro">{{ erro }}</div>
+
+    <div class="product-grid" v-if="!isLoading && !erro">
+        <div class="product-card" v-for="produto in produtos" :key="produto.id">
+            <h3>{{ produto.nome }}</h3>
+            <p>Preço: R$ {{ produto.preco.toFixed(2) }}</p>
+            <div class="card-actions">
+                <a :href="'detalhes.html?id=' + produto.id">Ver Detalhes</a>
+                <button @click="adicionarAoCarrinho(produto)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue@3"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
