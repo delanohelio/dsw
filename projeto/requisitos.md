@@ -4,6 +4,8 @@
 
 Desenvolver a **interface web (frontend)** de um sistema de logística, que permita **cadastrar e consultar clientes, encomendas, centros de distribuição, rotas e entregas**, além de possibilitar o **rastreamento das encomendas**. Todo o sistema deve se comunicar com uma **API REST** já disponibilizada.
 
+[Informações sobre a API REST](api.md)
+
 ---
 
 ### 🏛️ **Estrutura da Aplicação**
